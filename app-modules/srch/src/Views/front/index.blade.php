@@ -2,11 +2,7 @@
 
 @section('description')专注提高搜索效率@stop
 
-@section('title')魔爪一抓，你就得道@stop
-
-@section('custom-styles')
-{!! style('/assets/sbox/css/front.css') !!}
-@stop
+@section('title', '魔爪一抓，你就得道')
 
 @section('wraper-contents')
     <div class="navbar navbar-default">

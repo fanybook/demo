@@ -157,7 +157,11 @@ This file uses Baidu Suggest for jQuery plugin (licensed under GPLv3) by FanyYan
 //                        var drt = '<p link="'+info.siteurl+'">直达网站：'+info.site+' <span>'+info.showurl+'</span></p>';
 //                        sugUL += '<li class="direct">'+drt+'</li>';
 //                    }
+                var idx = 0;
                 for (var item in data.s){
+                    if (idx++ == 7) {
+                        break;
+                    }
                     sugUL += '<li>'+data.s[item]+'</li>';
                 }
                 sugUL += '</ul>';
