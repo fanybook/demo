@@ -3,7 +3,10 @@
 namespace Modules\Base;
 
 use Illuminate\Support\ServiceProvider;
-use Blade;
+use Modules\Base\Models\SiteSetting;
+use App;
+use Config;
+use Schema;
 
 class ModuleServiceProvider extends ServiceProvider
 {
@@ -12,6 +15,17 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (!App::runningInConsole() && count(Schema::getColumnListing('settings'))) {
+            // get all settings from the database
+            $settings = SiteSetting::all();
+
+            // bind all settings to the Laravel config, so you can call them like
+            // Config::get('settings.contact_email')
+            foreach ($settings as $key => $setting) {
+                Config::set('settings.'.$setting->key, $setting->value);
+            }
+        }
+
         $this->loadRoutesFrom(__DIR__.'/../routes.php');
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'base');
         $this->loadViewsFrom(__DIR__.'/Views', 'base');
