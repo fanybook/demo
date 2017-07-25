@@ -181,6 +181,11 @@ return [
         Backpack\Base\BaseServiceProvider::class,
         Backpack\CRUD\CrudServiceProvider::class,
         Backpack\LogManager\LogManagerServiceProvider::class,
+
+        /*
+         * Modules Service Providers...
+         */
+        Modules\Base\ModuleServiceProvider::class,
     ],
 
     /*

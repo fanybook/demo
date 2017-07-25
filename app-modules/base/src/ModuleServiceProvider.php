@@ -3,6 +3,7 @@
 namespace Modules\Base;
 
 use Illuminate\Support\ServiceProvider;
+use Blade;
 
 class ModuleServiceProvider extends ServiceProvider
 {
@@ -12,8 +13,8 @@ class ModuleServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__.'/../routes.php');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'base');
         $this->loadViewsFrom(__DIR__.'/Views', 'base');
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'base');
 
         // publish config file
         $this->publishes([
@@ -24,16 +25,6 @@ class ModuleServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../migrations' => database_path('migrations')
         ], 'migrations');
-
-
-        // 注册 @php 命令
-        Blade::directive('php', function($expression) {
-            if (starts_with($expression, '(')) {
-                $expression = substr($expression, 1, -1);
-            }
-
-            return "<?php $expression; ?>";
-        });
     }
 
     /**

@@ -16,9 +16,6 @@ Route::group([
     'middleware' => ['web', 'admin']
 ], function() {
     Route::resource('site-setting', 'SiteSettingCrudController');
-//    Route::get('/',                         'Admin\HomeController@getIndex');
-//    Route::get('/settings',                  'SiteSettingControllers@getIndex');
-//    Route::post('/settings',                 'SiteSettingControllers@postIndex');
 
 //    Route::get('/feedback',                 'Admin\FeedbackController@getIndex');
 });
