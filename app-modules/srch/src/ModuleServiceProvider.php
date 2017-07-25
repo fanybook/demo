@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Sbox;
+namespace Modules\Srch;
 
 use Illuminate\Support\ServiceProvider;
 

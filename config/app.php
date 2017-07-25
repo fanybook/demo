@@ -186,7 +186,7 @@ return [
          * Modules Service Providers...
          */
         Modules\Base\ModuleServiceProvider::class,
-        Modules\Sbox\ModuleServiceProvider::class,
+        Modules\Srch\ModuleServiceProvider::class,
     ],
 
     /*

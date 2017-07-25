@@ -166,7 +166,7 @@
         var admin_url = current_url.split('/admin/');
         if (admin_url.length > 1) {
             var current_module = admin_url[1].split('/')[0];
-            var admin_module = ['base', 'sbox', 'cms', 'mall', 'ad'];
+            var admin_module = ['base', 'srch', 'cms', 'mall', 'ad'];
 
             var module_idx = 0;
             if ($.inArray(current_module, admin_module) > 0) {

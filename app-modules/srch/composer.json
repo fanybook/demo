@@ -1,6 +1,6 @@
 {
-    "name": "tpower/sbox",
-    "description": "Tpower Module sbox.",
+    "name": "tpower/srch",
+    "description": "Tpower Module srch.",
     "type": "tpower-module",
     "keywords": ["tpower", "module"],
     "homepage": "https://fanybook.com",
@@ -13,12 +13,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Modules\\Sbox\\": "src/"
+            "Modules\\Srch\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Modules\\Sbox\\Tests\\": "tests/"
+            "Modules\\Srch\\Tests\\": "tests/"
         }
     },
     "require": {
