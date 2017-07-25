@@ -1,0 +1,30 @@
+{
+    "name": "tpower/base",
+    "description": "Tpower Module base.",
+    "type": "tpower-module",
+    "keywords": ["tpower", "module"],
+    "homepage": "https://fanybook.com",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Fanybook",
+            "email": "fanybook@126.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Base\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Base\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.7"
+    }
+}
