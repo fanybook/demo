@@ -9,6 +9,7 @@
         <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/cms') }}"><span>内容</span></a></li>
         <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/mall') }}"><span>商城</span></a></li>
         <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/ad') }}"><span>广告</span></a></li>
+        <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/digg') }}"><span>挖掘</span></a></li>
 
         <!-- ========== End of top menu left items ========== -->
     </ul>
