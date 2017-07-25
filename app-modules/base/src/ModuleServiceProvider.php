@@ -3,6 +3,7 @@
 namespace Modules\Base;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\AliasLoader;
 use Modules\Base\Models\SiteSetting;
 use App;
 use Config;
@@ -26,7 +27,7 @@ class ModuleServiceProvider extends ServiceProvider
             }
         }
 
-        $this->loadRoutesFrom(__DIR__.'/../routes.php');
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'base');
         $this->loadViewsFrom(__DIR__.'/Views', 'base');
 
@@ -37,7 +38,7 @@ class ModuleServiceProvider extends ServiceProvider
 
         // publish migration file
         $this->publishes([
-            __DIR__.'/../migrations' => database_path('migrations')
+            __DIR__.'/../resources/migrations' => database_path('migrations')
         ], 'migrations');
     }
 
@@ -49,12 +50,12 @@ class ModuleServiceProvider extends ServiceProvider
     public function register()
     {
         // 1.注册别名
-//        AliasLoader::getInstance([
-//            'BaseController'    => \Apk\Base\Libraries\BaseController::class,
-//            'BaseLogic'         => \Apk\Base\Libraries\BaseLogic::class,
+        AliasLoader::getInstance([
+            'BaseController'    => \Modules\Base\Libraries\BaseController::class,
+            'BaseLogic'         => \Modules\Base\Libraries\BaseLogic::class,
 //            'BaseModel'         => \Apk\Base\Libraries\BaseModel::class,
 //            'BaseService'       => \Apk\Base\Libraries\BaseService::class,
-//        ])->register();
+        ])->register();
     }
 
     public function info()

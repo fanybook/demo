@@ -3,171 +3,105 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=1170">
-<meta name="keyword" content="情趣用品,成人用品,情趣用品体验,安全套,避孕套,飞机杯，跳蛋">
-<meta name="description" content="洗白白，健康的合法的情趣用品购买和体验店">
-<meta name="author" content="fanybook.com">
-<meta name="renderer" content="webkit">
-<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="description" content="专注提高搜索效率">
+<meta name="author" content="fanybook@126.com">
 <link rel="shortcut icon" href="/favicon.ico"/>
-<title>@yield('title') - {{ $setting['site_name'] }}</title>
+<title>@yield('title')</title>
 
 <!-- Bootstrap -->
-{!! style('/third-party/bootstrap3/css/bootstrap.min.css') !!}
-{!! style('/third-party/font-awesome4/css/font-awesome.min.css') !!}
+{!! style('/assets/third-party/bootstrap3/css/bootstrap.min.css') !!}
 
 <!-- Custom styles -->
-{!! style('/assets/base/css/app.css') !!}
-{!! style('/assets/shop/css/base.css') !!}
-
-<style type="text/css">
-.container {
-    width: 1170px !important;
-}
-
-.tab-pane {
-    background: #fff;
-    margin-bottom: 20px;
-}
-
-/*.main-form button {
-    margin-top: 10px;
-}*/
-
-.navbar-nav li {
-    position: relative !important;
-}
-
-.badge-number {
-    position: absolute;
-    top: 6px;
-    left: 80%;
-    border-radius: 7px 7px 7px 0 !important;
-}
-
-.badge-default {
-    background-color: #777;
-}
-
-.badge-success {
-    background-color: #5cb85c;
-}
-
-.badge-danger {
-    background-color: #d9534f;
-}
-
-.tag-editor {
-/*    margin-top: 10px !important;*/
-    border-color: #ccc !important;
-}
-
-.ellipsis {
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    width: 100%;
-    overflow: hidden;
-    -ms-text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    -webkit-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-}
-</style>
+{!! style('/assets/srch/css/front.css') !!}
 
 @yield('head-assets')
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 
 <body>
-<div id="wraper">
-    <div class="topbar">
-        <div class="container" style="color: #ccc;">
-            {!! $setting['topbar_notice'] !!}
-            <div class="pull-right">
-                @if (Auth::check())
-                <a href="javascript:void(0);">您好：{{ is_null(Auth::user()->nickname) ? Auth::user()->email : Auth::user()->nickname }}</a> | <a href="/user">用户中心</a> | <a href="/logout" target="_blank">退出</a>
-                @else
-                <a href="/login">登录</a> | <a href="/regist">注册</a>
-                @endif
-            </div>
-        </div>
-    </div>
+<!-- Wrap all page content here -->
+<div id="wrap">
+<!-- Fixed navbar -->
+@yield('wraper-contents')
+</div>
 
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">展开导航</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/" title="{{ $setting['site_name'] }}"></a>
-            </div>
-
-            <form class="navbar-form navbar-left" role="search" style="margin-top: 20px;">
-                <div class="input-group" style="margin: auto 120px;">
-                    <input type="text" class="form-control" placeholder="热门：飞机杯 跳蛋 震动棒 延时 护士" style="width: 400px; border-color: #d9534f;">
-                    <span class="input-group-btn">
-                      <button class="btn btn-danger" type="button">　<i class="fa fa-search"></i>　</button>
-                    </span>
-                </div><!-- /input-group -->
-            </form>
-
-            <a href="/cart" class="btn btn-sm btn-default btn-cart pull-right shop-cart" style="margin-top: 20px;"><i class="fa fa-shopping-cart"></i> 购物车 <span class="badge shop-cart-number">0</span></a>
-        </div>
-    </div><!-- /.navbar -->
-
-    <div class="container">
-        @yield('main-contents')
-    </div>
-</div><!-- /#wraper -->
-
-<!--footer-->
 <div id="footer">
     <div class="container">
-        <p class="text-muted pull-left">{!! $setting['copyright'] !!} <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_2048668'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D2048668%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></p>
-        @php($serv_navi = new Apk\Navi\Services\Navi(); $link_footer = $serv_navi->getNavi('link_footer'))
-        @if($link_footer)
-        <p class="text-muted pull-right">
-            @foreach($link_footer->top_items as $idx => $navi_item)
-            {{ $idx == 0 ? '' : ' | ' }}<a href="{{ $navi_item->navi_link }}"{{ $navi_item->new_window_open ? ' target="_blank"' : ''}}>{{ $navi_item->navi_title }}</a>
-            @endforeach
-        </p>
-        @else
-        <div class="alert alert-danger pull-right" style="margin-bottom: 0;">未设置 link_footer</div>
-        @endif
+        @yield('footer-contents')
     </div>
-</div><!-- /#footer -->
+</div>
 
-<div id="hidden-items" style="display: none;">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrfToken">
-    @yield('hidden-items')
-</div><!-- /#hidden-items -->
+<div id="temple" style="display: none;">
+<ul id="tplUserMenu">
+    <li><a href="#">帐号设置</a></li>
+    <li><a href="/logout">退出</a></li>
+</ul>
+</div>
 
-<!-- Foot Assets
+<!-- Bootstrap core JavaScript
 ================================================== -->
-{!! script('/third-party/jquery2/jquery-2.1.1.min.js') !!}
-{!! script('/third-party/bootstrap3/js/bootstrap.min.js') !!}
-{!! script('/assets/base/js/app.js') !!}
+{!! script('/assets/third-party/jquery2/jquery-2.1.1.min.js') !!}
+{!! script('/assets/third-party/bootstrap3/js/bootstrap.min.js') !!}
 
-{!! script('/third-party/jquery-notifyBar/js/jquery.notifyBar.js') !!}
-{!! style('/third-party/jquery-notifyBar/css/jquery.notifyBar.css') !!}
+{!! script('/assets/third-party/jquery-colorbox/js/jquery.colorbox-min.js') !!}
+{!! style('/assets/third-party/jquery-colorbox/css/colorbox.css') !!}
 
-{!! script('/third-party/jquery-colorbox/js/jquery.colorbox-min.js') !!}
-{!! style('/third-party/jquery-colorbox/css/colorbox.css') !!}
+<script>
+$(function(){
+    var popoverShown = false;
+    $('.navbar-link').popover({
+        placement: 'bottom',
+        html: true,
+        content: $('#tplUserMenu').clone()
+    }).on({
+        mouseenter: function(){
+            $(this).addClass('hover');
+            if (popoverShown === false) {
+                $(this).popover('show');
+            }
+        },
+        mouseleave: function(){
+            $(this).removeClass('hover');
 
-{!! script('/third-party/jquery-validate/jquery.validate.min.js') !!}
-{!! script('/third-party/jquery-validate/additional-methods.min.js') !!}
-{!! script('/third-party/jquery-form/jquery.form.min.js') !!}
+            var self = this;
+            setTimeout(function() {
+                hidePopover(self);
+            }, 200);
+        }
+    }).on('shown.bs.popover', function () {
+        popoverShown = true;
+
+        var self = this;
+        $(this).next().on({
+            mouseenter: function(){
+                $(self).addClass('hover');
+            },
+            mouseleave: function(){
+                $(self).removeClass('hover');
+
+                setTimeout(function() {
+                    hidePopover(self);
+                }, 200);
+            }
+        });
+    }).on('hidden.bs.popover', function () {
+        popoverShown = false;
+    });
+});
+
+function hidePopover(target) {
+    if (!$(target).hasClass('hover')) {
+        $(target).popover('hide');
+    }
+}
+</script>
 
 @yield('foot-assets')
 </body>

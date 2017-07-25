@@ -1,6 +1,6 @@
 <?php
 
-namespace Apk\Base\Libraries;
+namespace Modules\Base\Libraries;
 
 class BaseLogic
 {

@@ -1,0 +1,256 @@
+/**
+ * admin.css
+ */
+
+/* --------------- layout --------------- */
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin-bottom: -50px; /* 根据header高度设置 */
+    padding-bottom: 50px;
+    overflow-y: scroll;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+
+main {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+main > nav,
+main > div {
+    display: table-cell;
+    height: 100%;
+    vertical-align: top;
+}
+
+/* --------------- header --------------- */
+#admin-header {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    background-image: linear-gradient(to bottom,#f3f3f3,#e2e2e2);
+    border: none;
+}
+
+#admin-header-list a:hover:after {
+    content: none;
+}
+
+/* --------------- main > sidebar --------------- */
+#admin-sidebar {
+    width: 220px;
+    background: linear-gradient(to right,#3a3633 93%,#2a2725 100%);
+}
+
+.admin-sidebar-list li {
+    background: none;
+    border: none;
+}
+
+.admin-sidebar-list li a {
+    color: #a8a8a8;
+    padding-left: 24px;
+}
+
+.admin-sidebar-list li a:hover {
+    color: #fff;
+}
+
+.admin-sidebar-list li.am-active a {
+    color: #fff;
+}
+
+.admin-sidebar-sub {
+    margin: 0;
+    background: rgba(69,69,69, .6); /* #454545 */
+    position: relative;
+}
+
+.admin-sidebar-sub::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 23px;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid #7a7a7a;
+}
+
+.admin-sidebar-sub li {
+    padding-left: 24px;
+    position: relative;
+}
+
+.admin-sidebar-sub li::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8px;
+    left: 23px;
+    top: 25px;
+    border-top: 1px solid #7a7a7a;
+    z-index: 1;
+}
+
+#admin-sidebar .am-divider {
+    margin: 0;
+    height: 0;
+    font-size: 0;
+    border-top: 1px solid #1a1817;
+    border-bottom: 1px solid #525151;
+}
+/* --------------- main > content --------------- */
+#admin-content {
+    position: relative;
+    padding-bottom: 50px; /* 根据footer高度设置 */
+}
+
+#admin-breadcrumb {
+    padding: 0.8rem 1.6rem;
+    background: #474544;
+    color: #BBB;
+}
+
+/* --------------- footer --------------- */
+footer {
+    color: #fff;
+    padding: 12px 20px 15px;
+    background: #2a2725;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* --------------- 响应式 --------------- */
+@media only screen and (max-width: 640px) {
+    .sidebar-open {
+        overflow-y: hidden;
+    }
+
+    .sidebar-open body {
+        overflow-y: hidden;
+    }
+
+    #admin-sidebar {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        overflow-y: auto;
+        width: 260px;
+        background: #3A3633;
+        border-right: 1px solid #222;
+    }
+
+    .sidebar-open #admin-sidebar {
+        display: block !important;
+        min-height: 100%;
+        top: 0;
+    }
+
+    #admin-menu {
+        position: fixed;
+        z-index: 10;
+        bottom: 30px;
+        right: 20px;
+        background: #ccc;
+    }
+}
+
+/* ==========================================================================
+   Component: Pagination
+ ============================================================================ */
+.pagination {
+  padding-left: 0;
+  margin: 1.5rem 0;
+  list-style: none;
+  color: #999999;
+  text-align: left;
+}
+.pagination:before,
+.pagination:after {
+  content: " ";
+  display: table;
+}
+.pagination:after {
+  clear: both;
+}
+.pagination > li {
+  display: inline-block;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  display: block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  line-height: 1.2;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 0;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  margin-right: 0;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  background-color: #eeeeee;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 2;
+  color: #ffffff;
+  background-color: #0e90d2;
+  border-color: #0e90d2;
+  cursor: default;
+}
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #999999;
+  background-color: #ffffff;
+  border-color: #dddddd;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.pagination .pagination-prev {
+  float: left;
+}
+.pagination .pagination-prev a {
+  border-radius: 0;
+}
+.pagination .pagination-next {
+  float: right;
+}
+.pagination .pagination-next a {
+  border-radius: 0;
+}
+.pagination-centered {
+  text-align: center;
+}
+.pagination-right {
+  text-align: right;
+}
