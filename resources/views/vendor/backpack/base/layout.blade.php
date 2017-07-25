@@ -162,6 +162,19 @@
         $('.nav-tabs a').on('shown.bs.tab', function (e) {
             location.hash = e.target.hash.replace("#tab_", "#");
         });
+
+        var admin_url = current_url.split('/admin/');
+        if (admin_url.length > 1) {
+            var current_module = admin_url[1].split('/')[0];
+            var admin_module = ['base', 'sbox', 'cms', 'mall', 'ad'];
+
+            var module_idx = 0;
+            if ($.inArray(current_module, admin_module) > 0) {
+                module_idx = $.inArray(current_module, admin_module);
+            }
+
+            $('.navbar-custom-menu li:eq('+module_idx+')').addClass('active');
+        }
     </script>
 
     @include('backpack::inc.alerts')

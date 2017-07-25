@@ -1,5 +1,9 @@
 @extends('backpack::layout')
 
+@php
+    $title = '文件管理';
+@endphp
+
 @section('after_scripts')
     <!-- jQuery and jQuery UI (REQUIRED) -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
