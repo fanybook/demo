@@ -166,7 +166,7 @@ This file uses Baidu Suggest for jQuery plugin (licensed under GPLv3) by FanyYan
                 }
                 sugUL += '</ul>';
                 $(sugUL).appendTo($('#suggest'));
-                $('<div>', {'class': 'suggest-title'}).text('魔爪：告别单一，让搜索更自由！').appendTo('#suggest');
+                $('<div>', {'class': 'suggest-title'}).text('魔爪搜索 :: 告别单一，让搜索更自由！').appendTo('#suggest');
 
                 // $('<div class="sug_copy"><a href="http://www.fanybook.com/" target="_blank">本站由 [非你不可] 开发</a></div>').appendTo(sug);
 

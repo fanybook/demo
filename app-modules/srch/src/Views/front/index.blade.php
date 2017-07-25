@@ -2,7 +2,7 @@
 
 @section('description')专注提高搜索效率@stop
 
-@section('title', '魔爪一抓，你就得道')
+@section('title', '魔爪搜索 :: 告别单一，让搜索更自由！')
 
 @section('wraper-contents')
     <div class="navbar navbar-default">
@@ -44,7 +44,7 @@
         </form>
 
         <div id="se-list" class="clearfix" style="position: relative;">
-            <div class="se-item loading" style="display: none;"><img src="{{ asset('/assets/images/icon_loading.gif') }}" width="21" height="17"></div>
+            <div class="se-item loading" style="display: none;"><img ori="{{ asset('/assets/images/icon_loading.gif') }}" width="21" height="17"></div>
         </div>
     </div>
 @stop
