@@ -8,6 +8,7 @@ use Modules\Base\Models\SiteSetting;
 use App;
 use Config;
 use Schema;
+use Route;
 
 class ModuleServiceProvider extends ServiceProvider
 {
@@ -27,7 +28,10 @@ class ModuleServiceProvider extends ServiceProvider
             }
         }
 
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
+        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        Route::middleware('web')
+             ->namespace('Modules\Base\Controllers')
+             ->group(__DIR__.'/routes.php');
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'base');
         $this->loadViewsFrom(__DIR__.'/Views', 'base');
 

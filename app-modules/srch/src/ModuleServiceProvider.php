@@ -12,7 +12,7 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //$this->loadRoutesFrom(__DIR__.'/routes.php');
+        // $this->loadRoutesFrom(__DIR__.'/routes.php');
         Route::middleware('web')
              ->namespace('Modules\Srch\Controllers')
              ->group(__DIR__.'/routes.php');
@@ -37,7 +37,7 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        //
     }
 
     public function info()

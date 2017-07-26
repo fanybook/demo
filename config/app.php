@@ -187,6 +187,7 @@ return [
          */
         Modules\Base\ModuleServiceProvider::class,
         Modules\Srch\ModuleServiceProvider::class,
+        Modules\User\ModuleServiceProvider::class,
     ],
 
     /*

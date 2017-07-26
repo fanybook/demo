@@ -40,7 +40,7 @@
 
 <div id="temple" style="display: none;">
 <ul id="tplUserMenu">
-    <li><a href="#">帐号设置</a></li>
+    <li><a href="/user">帐号设置</a></li>
     <li><a href="/logout">退出</a></li>
 </ul>
 </div>

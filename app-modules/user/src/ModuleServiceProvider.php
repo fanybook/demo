@@ -3,6 +3,7 @@
 namespace Modules\User;
 
 use Illuminate\Support\ServiceProvider;
+use Route;
 
 class ModuleServiceProvider extends ServiceProvider
 {
@@ -11,9 +12,12 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/../routes.php');
-        $this->loadViewsFrom(__DIR__.'/Views', 'base');
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'base');
+        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        Route::middleware('web')
+             ->namespace('Modules\User\Controllers')
+             ->group(__DIR__.'/routes.php');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'user');
+        $this->loadViewsFrom(__DIR__.'/Views', 'user');
 
         // publish config file
         $this->publishes([
@@ -22,7 +26,7 @@ class ModuleServiceProvider extends ServiceProvider
 
         // publish migration file
         $this->publishes([
-            __DIR__.'/../migrations' => database_path('migrations')
+            __DIR__.'/../resources/migrations' => database_path('migrations')
         ], 'migrations');
     }
 

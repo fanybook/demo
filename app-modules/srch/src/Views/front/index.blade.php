@@ -8,7 +8,11 @@
     <div class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-collapse">
-                <p class="navbar-text navbar-right"><a href="#follow" class="navbar-link">关注魔爪<span class="caret"></span></a></p>
+                @if (Auth::check())
+                <p class="navbar-text navbar-right"><a href="#follow" class="navbar-link">我的魔爪<span class="caret"></span></a></p>
+                @else
+                <p class="navbar-text navbar-right"><a href="{{ route('user.auth.login') }}" class="navbar-link">请登录</a>｜<a href="{{ route('user.auth.register') }}" class="navbar-link">注册</a></p>
+                @endif
             </div>
         </div>
     </div>
