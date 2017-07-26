@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-//    $router = app('router');
-//    dd($router->getMiddleware());
+    $router = app('router');
+    dd($router->getMiddleware());
     return view('welcome');
 });

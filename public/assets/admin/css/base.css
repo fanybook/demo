@@ -1,0 +1,416 @@
+/* ########## layout-setting ########## */
+
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin-bottom: -50px;
+    /* 和footer高度一致 */
+    
+    padding-bottom: 50px;
+    /* 和footer高度一致 */
+    
+    overflow-y: scroll;
+}
+#admin-header {
+    min-height: 50px;
+    margin-bottom: 0;
+}
+#admin-header .navbar-brand {
+    width: 220px;
+}
+#admin-main {
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px;
+    /* 和footer高度一致 */
+}
+#admin-main > nav,
+#admin-main > div {
+    display: table-cell;
+    height: 100%;
+    vertical-align: top;
+}
+#admin-sidebar {
+    width: 220px;
+    font-size: 16px;
+}
+#admin-main-right {
+    padding-bottom: 50px;
+    /* 和footer高度一致 */
+}
+
+#breadcrumbs {
+    margin: 0;
+    padding: 11px 25px;
+}
+
+#admin-main-contents {
+    padding: 15px;
+}
+
+#admin-footer {
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    margin-top: -50px;
+    display: table;
+}
+#admin-footer > div {
+    display: table-cell;
+}
+#admin-footer-left {
+    width: 220px;
+}
+#admin-footer-right {
+    padding: 13px 15px;
+}
+#admin-footer-right p {
+    margin: 0;
+}
+/* ########## layout-color ########## */
+
+#admin-header {
+    background-image: linear-gradient(to bottom, #f3f3f3, #e2e2e2);
+    border: none;
+}
+#admin-footer {
+    color: #fff;
+    background: #2a2725;
+}
+#admin-footer-left {
+    width: 220px;
+    background: linear-gradient(to right, #3a3633 93%, #2a2725 100%);
+}
+
+#breadcrumbs {
+    background: #474544;
+    font-size: 16px;
+    color: #bbb !important;
+}
+
+#breadcrumbs strong {
+    color: #3EAFE8;
+    font-size: 18px;
+}
+
+#admin-main-contents {
+    font-size: 16px;
+}
+
+/* ########## admin-sidebar ########## */
+
+#admin-sidebar li a {
+    display: block;
+    padding: 12px;
+    padding-left: 24px;
+    color: #a8a8a8;
+}
+#admin-sidebar {
+    background: linear-gradient(to right, #3a3633 93%, #2a2725 100%);
+}
+#admin-sidebar li.active a {
+    color: #fff;
+}
+#admin-sidebar li a:hover {
+    color: #fff;
+}
+#admin-sidebar li i {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 22px;
+}
+#admin-sidebar .divider {
+    margin: 0;
+    height: 0;
+    font-size: 0;
+    border-top: 1px solid #1a1817;
+    border-bottom: 1px solid #525151;
+}
+.admin-sidebar-sub {
+    margin: 0;
+    background: rgba(69, 69, 69, .6);
+    position: relative;
+}
+.admin-sidebar-sub::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 33px;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid #7a7a7a;
+}
+.admin-sidebar-sub li {
+    padding-left: 24px;
+    position: relative;
+}
+.admin-sidebar-sub li::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8px;
+    left: 33px;
+    top: 25px;
+    border-top: 1px solid #7A7A7A;
+    z-index: 1;
+}
+
+/*----------------------------
+ login
+ -----------------------------*/
+
+/*#login {
+    height: 100%;
+    background: linear-gradient(to right, #3a3633 93%, #2a2725 100%);
+}
+#login-content {
+    width: 350px;
+    background: #fff;
+    margin: 180px auto 0;
+    padding-bottom: 10px;
+}
+.login-title {
+    background: #E2E2E2;
+    font-size: 25px;
+    padding: 15px 20px;
+}
+.login-info {
+    margin: 10px 15px;
+}
+.login-info input {
+    font-size: 18px;
+    padding: 10px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}*/
+/*-------------------------
+ * #admin-content
+ * -----------------------*/
+
+#admin-content {
+    padding: 15px;
+}
+#admin-content:after {
+    clear: both;
+}
+.table-hover > tbody > tr:not(.second-category):hover {
+    background: #E1E1E1!important;
+}
+/*.icheckbox {
+    height: 20px;
+    width: 20px;
+    background: url(../images/checkbox_01.png) scroll no-repeat 0 0;
+}
+.icheckbox input {
+    opacity: 0;
+    height: 15px;
+    width: 15px
+}
+.icheckbox-checked {
+    background-position: -22px center;
+}*/
+/*搜索*/
+
+.content-top {
+    background: #e2e2e2;
+    font-weight: normal;
+    font-size: 14px;
+    position: relative;
+}
+.content-top .form-group,
+.content-top .form-group > div {
+    padding: 0;
+}
+.content-top .form-group > label {
+    padding-left: 0;
+}
+.uploader {
+    position: relative;
+    background: none repeat scroll 0 0 #0E90D2;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    height: 45px;
+    line-height: 45px;
+    padding: 0;
+    /*margin-left: 20px;*/
+    text-align: center;
+    color: #fff;
+}
+.uploader-sm{
+    font-size: 13px;
+    height: 35px;
+    line-height: 35px;
+}
+.uploader input {
+    bottom: 0;
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.user-image img,.cover-img img,.map img {
+    max-width: 100%;
+    max-height: 200px;
+}
+span.file-name {
+    position: relative;
+    top: 8px;
+    margin-left: 20px;
+    white-space: nowrap;
+}
+.nav-tabs > li > a:hover {
+    color: #337AB7;
+    background: #eee;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+#baseInfo .btn > input[type=checkbox] {
+    opacity: 0;
+    z-index: 0;
+}
+/*编辑器*/
+
+.edui-container {
+    width: 100%!important;
+}
+.edui-body-container {
+    min-height: 400px!important;
+}
+#myEditor{width: 100%;}
+/*分类*/
+
+.second-category td:first-child {
+    padding-left: 30px;
+}
+.third-category td:first-child {
+    padding-left: 60px;
+}
+.second-category,
+.third-category {
+    display: none;
+}
+
+/*查询的显示与隐藏*/
+
+.show-status {
+    position: absolute;
+    top: -3px;
+    right: 30px;
+    cursor: pointer;
+}
+.goto{
+    border: 1px solid #ddd;
+    border-left: none;
+    color: #337ab7;
+    padding: 5px 10px;
+    font-size: 15px;
+    background: #fff;
+}
+/*点击添加分类 弹出窗口 样式*/
+
+.add-panel {
+    width: 300px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    border-radius: 8px!important;
+    outline: none;
+    background: #fff;
+    z-index: 999;
+    position: absolute;
+    top: 120%;
+    left: 0;
+}
+/*frame样式*/
+
+.phone {
+    position: relative;
+    margin-left: 60px;
+    height: 710px;
+    width: 335px;
+    padding: 0 20px;
+}
+.phone02 {
+    width: 360px;
+}
+.phone03 {
+    width: 997px;
+    height: 1280px;
+    padding: 0 120px;
+}
+.phone .phone-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 705px;
+    width: 335px;
+    background: url(../images/phone_01.png) scroll no-repeat 0 0;
+    z-index: -1;
+}
+.phone02 .phone-image {
+    width: 360px;
+    background: url(../images/phone_02.png) scroll no-repeat 0 0;
+}
+.phone03 .phone-image {
+    width: 997px;
+    height: 1280px;
+    background: url(../images/ipad.png) scroll no-repeat 0 0;
+}
+.phone iframe {
+    margin-top: 120px;
+    height: 480px;
+    width: 100%;
+}
+.phone02 iframe {
+    margin-top: 90px;
+    height: 520px;
+}
+.phone03 iframe {
+    margin-top: 151px;
+    height: 998px;
+}
+.image-toggle {
+    position: absolute;
+    top: 100px;
+    left: -68px;
+}
+.image-toggle a {
+    display: block;
+    width: 65px;
+    height: 63px;
+    opacity: 0.7;
+}
+.image-toggle .material-image {
+    margin-top: 10px;
+    background: #403630 url(../images/small_01.png) scroll no-repeat 0 0;
+}
+.image-toggle a:focus,
+.image-toggle a:hover {
+    opacity: 1;
+}
+.image-toggle .ios-image {
+    background: #403630 url(../images/small_02.png) scroll no-repeat 0 0;
+}
+.image-toggle .iPad-image {
+    margin-top: 10px;
+    background: #403630 url(../images/small_ipad.png) scroll no-repeat 0 0;
+}
+/*导航分页样式*/
+.tab-pane{
+/*    min-height: 700px;*/
+}
+/*表格中的图片*/
+.table-img{
+	width: 60px;
+}
+/*日期*/
+.form_datetime{
+    padding-left: 15px!important;
+}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Base\Controllers\Common;
+namespace Apk\Auth\Controllers;
 
 use Config;
 use Session;

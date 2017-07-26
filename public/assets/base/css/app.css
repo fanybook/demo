@@ -1,0 +1,227 @@
+/* ########## reset ########## */
+
+/*清除bootstrap圆角*/
+* {
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+}
+
+/*定义placeholder的文字颜色*/
+::-webkit-input-placeholder { color:#bbb !important; }
+::-moz-placeholder { color:#bbb !important; } /* firefox 19+ */
+:-ms-input-placeholder { color:#bbb !important; } /* ie */
+
+/*设置网页字体*/
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: arial, "微软雅黑";
+}
+
+/*清除a标签的下划线*/
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+/*清除a和button标签的选中线*/
+a:focus,
+button:focus {
+    outline-style: none;
+    -moz-outline-style: none;
+    -webkit-outline-style: none;
+}
+
+/*清除ul标签的默认样式*/
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*还原bootstrap里h标签的粗体*/
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+/*textarea只可以纵向拉伸*/
+textarea {
+    resize: vertical;
+}
+
+/*.container强制宽度*/
+/*.container {
+    width: 1200px !important;
+    padding: 0;
+}*/
+
+.form-horizontal .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.toolbar {
+    margin-bottom: 15px;
+}
+
+.tab-pane {
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 15px;
+}
+
+.form-group .prompt-label {
+    padding-top: 7px;
+}
+
+/* ########## layout-setting ########## */
+body {
+    overflow-y: scroll;
+    font-size: 16px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#wraper {
+    min-height: 100%;
+    margin-bottom: -60px;
+    padding-bottom: 60px;
+}
+
+#footer {
+    height: 60px;
+}
+
+/* ########## 基于bootstrap的控件 ########## */
+.ellipsis {
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    width: 100%;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+/* ========================================
+    widget:list(nodata) 列表无数据时的样式
+======================================== */
+.nodata {
+    padding: 0 !important;
+}
+
+.nodata > div {
+    margin: 0;
+    border: none;
+}
+
+/* ========================================
+    widget:select 仿select空间，带过滤
+======================================== */
+select {
+    display: none;
+}
+.select-group button {
+    padding-right: 20px;
+    text-align: left;
+    white-space: nowrap;
+}
+.select-group button span {
+    display: block;
+    width: 100%;
+    float: left;
+}
+.select-group button i.caret {
+    display: inline-block;
+}
+.select-group .dropdown-menu {
+    padding: 10px;
+    left: 15px;
+    right: 15px;
+}
+.select-group .dropdown-menu ul {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+.selected-list .selected-text {
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    margin-right: 30px;
+}
+.selected-list li {
+    position: relative;
+    cursor: pointer;
+    padding: 5px 10px;
+    -webkit-transition: background-color .15s;
+    transition: background-color .15s;
+    line-height: 24px;
+}
+.selected-list li:hover {
+    background-color: #f8f8f8;
+}
+.selected-list .fa-check {
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    color: #999;
+    opacity: 0;
+    -webkit-transition: opacity .15s;
+    transition: opacity .15s;
+    line-height: 24px;
+}
+.selected-list li:hover .fa-check {
+    opacity: .6;
+}
+.selected-list li.checked .fa-check {
+    opacity: 1;
+    color: #0e90d2;
+}
+
+/* ========================================
+    widget:file 文件上传按钮
+======================================== */
+.file-group {
+    position: relative;
+    overflow: hidden;
+    width: 134px;
+}
+.file-group input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 500px;
+}
+
+/* ========================================
+    widget:pagination 分页
+======================================== */
+.pagination-lg>li>a,
+.pagination-lg>li>span {
+    padding: 6px 10px;
+    font-size: 15px;
+}
+.pagination>li>span:hover {
+    background: inherit;
+    color: #337AB7;
+}
+.page-to span {
+    padding-top: 5px!important;
+}
+.page-to input {
+    font-size: 12px;
+    height: 20px;
+    width: 30px;
+    vertical-align: bottom;
+}

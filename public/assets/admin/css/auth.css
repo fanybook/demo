@@ -1,0 +1,88 @@
+body {
+    font-family: arial, "微软雅黑";
+    padding-top: 100px;
+    padding-bottom: 40px;
+    background-color: #eee;
+}
+
+#auth-box {
+    max-width: 390px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #c9c9c9;
+}
+
+#auth-box-top {
+    padding: 30px 50px 50px;
+}
+
+#auth-box-bottom {
+    padding: 20px 50px;
+    border-top: 1px solid #c9c9c9;
+    background-color: #f4f4f4;
+}
+
+.main-form h2 {
+    font-size: 32px;
+}
+
+.main-form h2,
+.main-form .checkbox {
+    margin-bottom: 10px;
+}
+.main-form .checkbox {
+    font-weight: normal;
+}
+.main-form .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+}
+
+/*上压下1px，z-index为了边框高亮不缺边*/
+.main-form .form-control:focus {
+    z-index: 2;
+}
+.main-form input[type="text"] {
+    margin-bottom: -1px;
+}
+.main-form input[type="password"] {
+    margin-bottom: 10px;
+}
+
+.text-muted {
+    text-align: center;
+}
+
+#footer {
+    margin-top: 15px;
+}
+/*footer居底*/
+/*html,body {
+    height: 100%;
+}
+
+body {
+    overflow-y: scroll;
+    font-size: 16px;
+}
+
+#wraper {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+    overflow-y: hidden;
+}
+
+#footer {
+    height: 60px;
+}*/
+
+/*清除bootstrap圆角*/
+/** {
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+}*/

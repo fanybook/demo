@@ -17,6 +17,7 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // 1.把setting注册进config
         if (!App::runningInConsole() && count(Schema::getColumnListing('settings'))) {
             // get all settings from the database
             $settings = SiteSetting::all();
@@ -27,6 +28,10 @@ class ModuleServiceProvider extends ServiceProvider
                 Config::set('settings.'.$setting->key, $setting->value);
             }
         }
+
+        // 2.注册中间件别名
+        Route::aliasMiddleware('admin', \Modules\Base\Middleware\Admin::class);
+        Route::aliasMiddleware('admin.logined', \Modules\Base\Middleware\AdminLogined::class);
 
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
         Route::middleware('web')

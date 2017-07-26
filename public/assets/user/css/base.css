@@ -1,0 +1,62 @@
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'WenQuanYi Micro Hei', 'Microsoft YaHei UI', 'Microsoft YaHei', sans-serif;
+}
+
+body {overflow-y: scroll;}
+html,body {height: 100%;}
+#wraper {min-height: 100%; height: auto; margin: 0 auto -60px; padding: 0 0 60px;}
+#footer {height: 60px; background-color: #333;}
+
+a:focus,
+button:focus
+{outline-style:none; -moz-outline-style: none;}
+
+.glyphicon-eye-open {
+    cursor: pointer;
+}
+
+.breadcrumb {
+    border: 1px solid #ddd;
+}
+
+.form-control,
+.form-control:focus {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.table > thead > tr> th,
+.table > tbody > tr> th,
+.table > tfoot > tr> th,
+.table > thead > tr> td,
+.table > tbody > tr> td,
+.table > tfoot > tr> td {
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar-brand {
+    width: 250px;
+    height: 80px;
+    background: url('../images/54ns.home.png') no-repeat;
+    color: #555 !important;
+}
+
+.navbar-nav > li > a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.divider {
+    height: 1px;
+    overflow: hidden;
+    background-color: #ddd;
+}
+
+.col-md-9 {
+    margin-bottom: 30px;
+}
+
+#contents {
+    margin: 20px 0;
+}

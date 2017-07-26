@@ -1,9 +1,17 @@
 <?php
 
-Route::group(['prefix' => config('backpack.base.route_prefix', 'admin'), 'middleware' => 'admin'], function() {
-    Route::resource('site-setting', 'Admin\SiteSettingCrudController');
+Route::post('/captcha/get',     'Common\CaptchaController@apiGet');
 
-//    Route::get('/feedback',                 'Admin\FeedbackController@getIndex');
+Route::group(['prefix' => config('backpack.base.route_prefix', 'admin')], function() {
+    Route::get('/login',            'Admin\AuthController@login');
+    Route::post('/login',           'Admin\AuthController@postLogin');
+    Route::get('/logout',           'Admin\AuthController@logout');
+
+    Route::group(['middleware' => 'admin'], function() {
+        Route::resource('site-setting', 'Admin\SiteSettingCrudController');
+
+    //    Route::get('/feedback',                 'Admin\FeedbackController@getIndex');
+    });
 });
 
 // 身份认证（登录，注册，密码找回，重置）
