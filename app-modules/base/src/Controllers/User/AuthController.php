@@ -82,7 +82,7 @@ class AuthController extends \BaseController
                     $response['go_url'] = Request::input('return_url');
                     Session::forget('url.intended');
                 } else {
-                    $response['go_url'] = Session::get('url.intended') ? Session::remove('url.intended') : route('front.home.index');
+                    $response['go_url'] = Session::get('url.intended') ? Session::remove('url.intended') : route('srch.home');
                 }
             } else {
                 throw new Exception('登录失败，密码不正确');
@@ -146,7 +146,7 @@ class AuthController extends \BaseController
 
             if($user) {
                 Auth::login($user);
-                $response['go_url'] = Session::get('url.intended') ? Session::remove('url.intended') : route('front.home.index');
+                $response['go_url'] = Session::get('url.intended') ? Session::remove('url.intended') : route('srch.home');
 
                 captcha_destroy();
             } else {

@@ -10,7 +10,7 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="Cache-Control" content="no-siteapp"/>
 <link rel="shortcut icon" href="/favicon.ico"/>
-<title>@section('title')专注防骗 - 范书@show</title>
+<title>@section('title')用户中心 - 魔爪搜索@show</title>
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="/assets/third-party/bootstrap3/css/bootstrap.min.css">
@@ -79,7 +79,7 @@ body {
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="#" class="logo hidden-xs">
+    <a href="{{ route('user.home') }}" class="logo hidden-xs">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>魔爪</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -96,11 +96,22 @@ body {
       @if (Auth::check())
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <li><a href="/user/sbox"><span>搜索</span></a></li>
+          <li><a href="/user/mall"><span>商城</span></a></li>
+          <li><a href="/user/ad"><span>广告</span></a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">返回 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ route('srch.home') }}">搜索</a></li>
+              <li><a href="/mall">商城</a></li>
+            </ul>
+          </li>
+
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="/assets/third-party/adminLTE/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ Auth::user()->nickname }}</span>
+              <span class="hidden-xs">{{ Auth::user()->nickname ?: Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -117,7 +128,7 @@ body {
                   <a href="#" class="btn btn-default btn-flat">个人资料</a>
                 </div>-->
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">退出登录</a>
+                  <a href="{{ route('user.auth.logout') }}" class="btn btn-default btn-flat">退出登录</a>
                 </div>
               </li>
             </ul>

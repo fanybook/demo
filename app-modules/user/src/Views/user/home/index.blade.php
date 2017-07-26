@@ -1,7 +1,7 @@
 @extends('user::_layouts.user')
 @php($unfolded = 'home')
 
-@section('title', '防范一下，没有坏处')
+@section('title', '用户中心 - 魔爪搜索')
 
 @section('content-wrapper')
     <!-- Main content -->
