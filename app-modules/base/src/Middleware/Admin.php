@@ -25,7 +25,7 @@ class Admin
             }
         }
 
-        Session::set('admin_auth', time());
+        Session::put('admin_auth', time());
 
         return $next($request);
     }

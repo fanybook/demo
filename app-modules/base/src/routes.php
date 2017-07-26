@@ -3,9 +3,11 @@
 Route::post('/captcha/get',     'Common\CaptchaController@apiGet');
 
 Route::group(['prefix' => config('backpack.base.route_prefix', 'admin')], function() {
-    Route::get('/login',            'Admin\AuthController@login');
-    Route::post('/login',           'Admin\AuthController@postLogin');
-    Route::get('/logout',           'Admin\AuthController@logout');
+    Route::get('/logout',               'Admin\AuthController@logout');
+    Route::group(['middleware' => 'admin.logined'], function() {
+        Route::get('/login',            'Admin\AuthController@login');
+        Route::post('/login',           'Admin\AuthController@postLogin');
+    });
 
     Route::group(['middleware' => 'admin'], function() {
         Route::resource('site-setting', 'Admin\SiteSettingCrudController');

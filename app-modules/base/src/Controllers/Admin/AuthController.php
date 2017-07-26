@@ -6,7 +6,7 @@ use Exception;
 use Session;
 use Fanybook\LicenseFacade as License;
 
-use Apk\User\Models\User;
+use Modules\Base\Models\User;
 use Request;
 use Validator;
 use Auth;
@@ -28,7 +28,7 @@ class AuthController extends \BaseController
     public function logout()
     {
         Session::forget('admin_auth');
-        return redirect('/admin/login');
+        return redirect(config('backpack.base.route_prefix', 'admin') . '/login');
     }
 
     public function postLogin()
@@ -69,7 +69,7 @@ class AuthController extends \BaseController
                 }
             }
 
-            Session::set('admin_auth', time());
+            Session::put('admin_auth', time());
 
             $result['result']  = true;
             $result['message'] = '登录成功，马上跳转';
@@ -77,7 +77,7 @@ class AuthController extends \BaseController
             if (Session::get('url.intended')) {
                 $result['goUrl'] = Session::remove('url.intended');
             } else {
-                $result['goUrl'] = '/admin';
+                $result['goUrl'] = '/'.config('backpack.base.route_prefix', 'admin');
             }
         } catch (Exception $e) {
             $result['result']  = false;
