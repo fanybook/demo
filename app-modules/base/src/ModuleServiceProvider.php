@@ -62,7 +62,7 @@ class ModuleServiceProvider extends ServiceProvider
         AliasLoader::getInstance([
             'BaseController'    => \Modules\Base\Libraries\BaseController::class,
             'BaseLogic'         => \Modules\Base\Libraries\BaseLogic::class,
-//            'BaseModel'         => \Apk\Base\Libraries\BaseModel::class,
+            'BaseModel'         => \Modules\Base\Libraries\BaseModel::class,
 //            'BaseService'       => \Apk\Base\Libraries\BaseService::class,
         ])->register();
     }

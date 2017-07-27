@@ -1,6 +1,6 @@
 <?php
 
-namespace Apk\Base\Libraries;
+namespace Modules\Base\Libraries;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

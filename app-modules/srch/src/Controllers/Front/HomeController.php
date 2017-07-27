@@ -17,7 +17,7 @@ class HomeController extends \BaseController
         View::share('seConfig',$result['seConfig']);
     }
 
-    public function getIndex()
+    public function index()
     {
         $model = new Logics\Front\Index();
         $result = $model->run();

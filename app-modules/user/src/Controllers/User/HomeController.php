@@ -13,7 +13,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user::user.home.index');
+        return redirect(route('user::srch.se.index'));
+//        return view('user::user.home.index');
     }
 
     public function getBook()

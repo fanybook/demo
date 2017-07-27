@@ -73,7 +73,7 @@ body {
 <![endif]-->
 </head>
 
-<body class="hold-transition skin-blue layout-boxed sidebar-mini sidebar-collapse">
+<body class="hold-transition skin-blue layout-boxed sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -96,14 +96,16 @@ body {
       @if (Auth::check())
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <li><a href="/user/sbox"><span>搜索</span></a></li>
+          <li><a href="/user"><span>基础</span></a></li>
+          <li><a href="/user/srch"><span>搜索</span></a></li>
           <li><a href="/user/mall"><span>商城</span></a></li>
           <li><a href="/user/ad"><span>广告</span></a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">返回 <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="{{ route('srch.home') }}">搜索</a></li>
+              <li><a href="{{ route('srch.homepage') }}">搜索</a></li>
               <li><a href="/mall">商城</a></li>
+              <li><a href="/ad">广告</a></li>
             </ul>
           </li>
 
@@ -119,7 +121,7 @@ body {
                 <img src="/assets/third-party/adminLTE/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  我们一起努力，让更多人免于受骗</small>
+                  魔爪搜索，让搜索更简单</small>
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -155,6 +157,28 @@ body {
       @endphp
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
+        @if ($module == 'srch')
+        <li class="treeview{!! $class['srch_setting'] or '' !!}">
+          <a href="javascript:void(0);">
+            <i class="fa fa-gear"></i>
+            <span>设置 <small class="text-muted">搜索框</small></span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li{!! $class['srch_setting_se'] or '' !!}><a href="{{ route('user::srch.se.index') }}"><i class="fa fa-circle-o"></i> 整套引擎方案</a></li>
+            <li{!! $class['srch_setting_sbox'] or '' !!}><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> 自己的sbox</a></li>
+            <li{!! $class['srch_setting_preference'] or '' !!}><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> 使用体验</a></li>
+          </ul>
+        </li>
+        <li{!! $class_html['square'] or '' !!}>
+          <a href="#">
+            <i class="fa fa-bullhorn"></i>
+            <span>广场 <small class="text-muted">看看别人分享的sbox</small></span>
+          </a>
+        </li>
+        @else
         <li{!! $class_html['home'] or '' !!}>
           <a href="#">
             <i class="fa fa-search"></i>
@@ -215,6 +239,7 @@ body {
             <li><a href="javascript:void(0);"><i class="fa fa-circle-o"></i> 服务条款</a></li>
           </ul>
         </li>
+        @endif
       </ul>
     </section><!-- /.sidebar -->
   </aside><!-- /.main-sidebar -->
@@ -223,7 +248,18 @@ body {
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    @yield('content-wrapper')
+    <section class="content-header">
+      <h1>
+        @yield('content-header')
+      </h1>
+      <ol class="breadcrumb">
+        @yield('breadcrumb')
+      </ol>
+    </section>
+
+    <section class="content">
+      @yield('main-content')
+    </section>
   </div><!-- /.content-wrapper -->
 
   <footer class="main-footer text-right" style="background-color: #ecf0f5; border: 0;">
@@ -250,6 +286,22 @@ body {
 <script src="/assets/third-party/jquery-form/jquery.form.min.js"></script>
 <script src="/assets/third-party/jquery-toaster/jquery.toaster.js"></script>
 <script src="/assets/base.js"></script>
+
+<script type="text/javascript">
+    var current_url = '{{ Request::fullUrl() }}';
+    var user_url = current_url.split('/user/');
+    if (user_url.length > 1) {
+        var current_module = user_url[1].split('/')[0];
+        var user_module = ['base', 'srch', 'mall', 'ad'];
+
+        var module_idx = 0;
+        if ($.inArray(current_module, user_module) > 0) {
+            module_idx = $.inArray(current_module, user_module);
+        }
+
+        $('.navbar-custom-menu li:eq('+module_idx+')').addClass('active');
+    }
+</script>
 
 @yield('foot-assets')
 </body>

@@ -4,6 +4,7 @@ namespace Modules\Srch;
 
 use Illuminate\Support\ServiceProvider;
 use Route;
+use View;
 
 class ModuleServiceProvider extends ServiceProvider
 {
@@ -12,6 +13,7 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::share('module', 'srch');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
         Route::middleware('web')
              ->namespace('Modules\Srch\Controllers')
