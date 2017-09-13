@@ -1,1 +1,15 @@
 searchbox::_layout.master
+
+// 按制定的ID顺序进行排序
+$rec_ids = DB::table('product_recommend_item')->orderBy('sort_order')->get()
+             ->pluck('sku_id')->toArray();
+
+if (empty($rec_ids)) {
+    $res['data'] = [];
+} else {
+    $ids_ordered = implode(',', $rec_ids);
+    $res['data'] = Models\ItemSku::select(['id', 'alias_name', 'cover_image'])
+                                 ->whereIn('id', $rec_ids)
+                                 ->orderByRaw(DB::raw("FIELD(id, $ids_ordered)"))
+                                 ->get();
+}
